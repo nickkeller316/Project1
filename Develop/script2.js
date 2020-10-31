@@ -4,17 +4,16 @@
 
 var equal = location.href.indexOf("=")
 var amp = location.href.indexOf("&")
-var token = location.href.substr(equal +1, amp)
+var token = "Bearer " + location.href.substring(equal +1, amp)
 console.log(token)
 
 $("main-search").on('click', function(event){
   event.preventDefault()
 })
 
-var apiUrl = "https://nickkeller316.github.io/Project1/Develop/index2.html#access_token=" + token +"&token_type=Bearer&expires_in=3600"
+var apiUrl = "https://api.spotify.com/v1/search?q=prince&type=artist"
 
-
-fetch(apiURL)   
+fetch(apiURL, {headers:{"Authorization": token, "Accept": "application/json"} })   
   .then(function(response){
     return response.json();
   })
@@ -22,10 +21,6 @@ fetch(apiURL)
      console.log(data)
    })
 
-  headers: new Headers({
-      'Authorization': 'Bearer ' + token
-    })
-  
 //on click of search button run a search function that includes the fetch call
 //add token variable in as header, google how to add header to a fetch
 //make the fetch call with the authorizationToken as a header
