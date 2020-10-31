@@ -13,7 +13,7 @@ $("main-search").on('click', function(event){
 
 var apiUrl = "https://api.spotify.com/v1/search?q=prince&type=artist"
 
-fetch(apiURL, {headers:{"Authorization": token, "Accept": "application/json"} })   
+fetch(apiUrl, {headers:{"Authorization": token, "Accept": "application/json"} })   
   .then(function(response){
     return response.json();
   })
