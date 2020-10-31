@@ -3,7 +3,7 @@
 //after user logs in, store that token as a variable, parse from url, then do "Bearer "+token
 
 var equal = location.href.indexOf("=")
-var amp = location.href.indexOf("&")
+var amp = location.href.indexOf("expires")
 var token = "Bearer " + location.href.substring(equal +1, amp)
 console.log(token)
 
