@@ -15,7 +15,8 @@ function startNow() {
   var artKey = localStorage.getItem("user-In");
   console.log(artKey)
   console.log(token)
-fetch("https://api.spotify.com/v1/search?q=" + artKey + "&type=artist", {headers:{"Authorization": token, "Accept": "application/json"} })   
+
+  fetch("https://api.spotify.com/v1/search?q=" + artKey + "&type=artist", {headers:{"Authorization": token, "Accept": "application/json"} })   
   
   .then(function(response){
     return response.json();
@@ -43,8 +44,10 @@ fetch("https://api.spotify.com/v1/search?q=" + artKey + "&type=artist", {headers
 
       var genI = data.artists.items[i].genres
      var genresDIv2 = ("<p class='genres2 small-4 medium-4'>"  +genI+ "</p>");
-     div2nd.append(genresDIv2);
-
+     var trackBtn = (<a href="#" class="button large"> Authenticate </a>);
+     
+     div2nd.append(genresDIv2 , trackBtn);
+     
     }
 
 
