@@ -8,21 +8,20 @@ var token = "Bearer " + location.href.substring(equal +1, amp)
 
 
 
-$("main-search").on('click', function(event){
-  event.preventDefault()
 
 
+function startNow() {
+
+  var artKey = localStorage.getItem("user-In");
+  console.log(artKey)
+  console.log(token)
+fetch("https://api.spotify.com/v1/search?q=" + artKey + "&type=artist", {headers:{"Authorization": token, "Accept": "application/json"} })   
   
-})
-
-
-
-fetch("https://api.spotify.com/v1/search?q=prince&type=artist", {headers:{"Authorization": token, "Accept": "application/json"} })   
-
   .then(function(response){
     return response.json();
   })
    .then(function(data){
+  
     for (var i = 0; i < data.artists.items.length; i++) {
         console.log(data)
     console.log(data.artists.items[i].images[2].url)
@@ -47,7 +46,45 @@ fetch("https://api.spotify.com/v1/search?q=prince&type=artist", {headers:{"Autho
      div2nd.append(genresDIv2);
 
     }
+
+
+
+} )
+
+}
+
+    $("#main-search").on('click', function(){
+      
+      var userInput = $("#searchId").val().toLowerCase();
+      
+
+      
+       if (userInput !== "") {
+        localStorage.setItem("user-In", userInput); 
+      
+        startNow()
+
+
+       }
+      
+})
+
+
+  //
+  //   localStorage.setItem("user-In", userInput); 
+    
+  //   // alemenat duplicat val
+  //   if (historyList.indexOf(userInput) === -1) {
+  //     list = $("<li>").text(userInput);
+  //     $("#city-list").append(list);
+  //     historyList.push(userInput);
+  //     localStorage.setItem("City-list", JSON.stringify(historyList));
+  //   }
+  // };
   
+
+
+
    
     //  var cardOne = $(".avatar-image2");
     //  var artistName2 = ("<h2>" +data.artists.items[0].name+ "</h2>");
@@ -62,7 +99,6 @@ fetch("https://api.spotify.com/v1/search?q=prince&type=artist", {headers:{"Autho
 
     //  cardOne.append('<img src=' + imgDiv + '>');
     //  artNameDiv.append(artistName2)
-});
 
 /* <div class="blog-post">
           <h3 id="result-one"><small>3/6/2015</small></h3>
