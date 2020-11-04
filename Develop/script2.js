@@ -44,9 +44,7 @@ function startNow() {
 
       var genI = data.artists.items[i].genres
      var genresDIv2 = ("<p class='genres2 small-4 medium-4'>"  +genI+ "</p>");
-     var trackBtn = (<a href="#" class="button large"> Authenticate </a>);
-     
-     div2nd.append(genresDIv2 , trackBtn);
+     div2nd.append(genresDIv2);
      
     }
 
