@@ -1,6 +1,6 @@
-var redirectUri =
-  "Project1/index2.html"; //this is the link to our homepage
-  // https://nickkeller316.github.io/Project1/Develop/index2.html
+var redirectUri = "index2.html"
+// "https://nickkeller316.github.io/Project1/Develop/index2.html"
+  //this is the link to our homepage
 var authorizationToken; //this returns in the url after login
 //var queryURL; // "https://api.spotify.com/v1/search?q=" + searchTerm + "&type=artist";
 //var searchTerm; //this is the user input
@@ -29,9 +29,9 @@ $("#auth").on('click', function(){
 //after user logs in, store that token as a variable, parse from url, then do "Bearer "+token
 
 
-$("main-search").on('click', function(){
+// $("main-search").on('click', function(){
 
-})
+// })
 //on click of search button run a search function that includes the fetch call
 //add token variable in as header, google how to add header to a fetch
 //make the fetch call with the authorizationToken as a header

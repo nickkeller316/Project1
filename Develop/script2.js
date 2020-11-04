@@ -8,15 +8,13 @@ var token = "Bearer " + location.href.substring(equal +1, amp)
 
 
 
-// console.log(token)
-
 $("main-search").on('click', function(event){
   event.preventDefault()
 
 
   
 })
-// {/* <p data-hour = "${bizHours[i]}" class="hour">${bizHours[i]}</p> */}
+
 
 
 fetch("https://api.spotify.com/v1/search?q=prince&type=artist", {headers:{"Authorization": token, "Accept": "application/json"} })   
@@ -25,26 +23,46 @@ fetch("https://api.spotify.com/v1/search?q=prince&type=artist", {headers:{"Autho
     return response.json();
   })
    .then(function(data){
-    console.log(data);
-
-    
-
-     var cardOne = $(".avatar-image2");
-     var artistName2 = ("<h2>" +data.artists.items[0].name+ "</h2>");
-    
-
-     var artNameDiv = $(".artistName2") 
-     var imgDiv = data.artists.items[0].images[2].url;
-     var genresDIv2 = $(".genres2")
-     var genresData1 = ("<p> <br/><br/><br/>" +data.artists.items[0].genres+ "</p>");
-     genresDIv2.append(genresData1)
+    for (var i = 0; i < data.artists.items.length; i++) {
+        console.log(data)
+    console.log(data.artists.items[i].images[2].url)
+    var mainBlocks = $(".mainblocks");
+    var divFirst = $("<div class='row add-people-section'>");
+    mainBlocks.append(divFirst)
+    var div2nd = $("<div class='small-12 medium-12 columns about-people'>")
+    divFirst.append(div2nd)
+    var div3rd = $("<div class='avatar-image2 small-3 medium-3'>")
+    div2nd.append(div3rd)
 
 
-     cardOne.append('<img src=' + imgDiv + '>');
-     artNameDiv.append(artistName2)
+    var imgDiv = data.artists.items[i].images[2].url;
+    div3rd.append('<img src=' + imgDiv + '><br/>');
 
-   });
+
+    var artistName2 = ("<h3 class='avatar-image2 small-5 medium-5'> Name: <br/>" +data.artists.items[i].name+ "</h2>");
+     div2nd.append(artistName2);
+
+      var genI = data.artists.items[i].genres
+     var genresDIv2 = ("<p class='genres2 small-4 medium-4'>"  +genI+ "</p>");
+     div2nd.append(genresDIv2);
+
+    }
+  
    
+    //  var cardOne = $(".avatar-image2");
+    //  var artistName2 = ("<h2>" +data.artists.items[0].name+ "</h2>");
+    
+
+    //  var artNameDiv = $(".artistName2") 
+    //  var imgDiv = data.artists.items[0].images[2].url;
+    //  var genresDIv2 = $(".genres2")
+    //  var genresData1 = ("<p> <br/><br/><br/>" +data.artists.items[0].genres+ "</p>");
+    //  genresDIv2.append(genresData1)
+
+
+    //  cardOne.append('<img src=' + imgDiv + '>');
+    //  artNameDiv.append(artistName2)
+});
 
 /* <div class="blog-post">
           <h3 id="result-one"><small>3/6/2015</small></h3>
@@ -75,6 +93,3 @@ fetch("https://api.spotify.com/v1/search?q=prince&type=artist", {headers:{"Autho
 //    .then(function(data){
 //      console.log(data)
 //    })
-// spotify login
-// Mermph@gmail.com
-// Annster67
