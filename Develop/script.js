@@ -1,5 +1,4 @@
-var redirectUri = "index2.html"
-// "https://nickkeller316.github.io/Project1/Develop/index2.html"
+var redirectUri = "https://nickkeller316.github.io/Project1/Develop/index2.html"
   //this is the link to our homepage
 var authorizationToken; //this returns in the url after login
 //var queryURL; // "https://api.spotify.com/v1/search?q=" + searchTerm + "&type=artist";
