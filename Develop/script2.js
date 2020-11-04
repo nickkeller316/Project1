@@ -44,7 +44,6 @@ function startNow() {
 
       var genI = data.artists.items[i].genres
      var genresDIv2 = ("<p class='genres2 small-4 medium-4'>"  +genI+ "</p>");
-     
      div2nd.append(genresDIv2);
      
     }
