@@ -29,8 +29,16 @@ $("#auth").on('click', function(){
 
 
 // $("main-search").on('click', function(){
+  
 
 // })
+
+
+
+
+
+
+
 //on click of search button run a search function that includes the fetch call
 //add token variable in as header, google how to add header to a fetch
 //make the fetch call with the authorizationToken as a header
