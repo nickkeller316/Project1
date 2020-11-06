@@ -48,11 +48,15 @@ fetch("https://api.spotify.com/v1/search?q=" + artKey + "&type=artist", {headers
      div2nd.append(artistName2);
 
       var genI = data.artists.items[i].genres
-      
+      var genresN = "";
       // console.log(genI.toString().replace(',','<br>'))
+      // for (var i = 0; i < genI.length; i++) {
+      //   genresN = genresN+
+      //   genI[i].toString().replace(',','<br></br>')
+        
+      // }
 
-
-     var genresDIv2 = ("<p class='genres2 small-3 medium-3'>"  +genI.toString().replace(',','\n')+ "</p>");
+     var genresDIv2 = ("<p class='genres2 small-3 medium-3'>"  + genresN +"</p>");
      div2nd.append(genresDIv2);
 
      var btN = $("<button class='button primary small-2 medium-2' onclick=showSongs('" +data.artists.items[i].id+ "')>Show Songs</button>")
@@ -68,16 +72,16 @@ fetch("https://api.spotify.com/v1/search?q=" + artKey + "&type=artist", {headers
 function showSongs(artistId) {
   // console.log(token)
 // $(".avatar-image2").addClass("hide")
-fetch("https://api.spotify.com/v1/recommendations?limit=10&offset=10&market=US&seed_artists=" + artistId, {headers:{"Authorization": token, "Accept": "application/json"} }) 
+fetch(`https://api.spotify.com/v1/artists/${artistId}/top-tracks`, {headers:{"Authorization": token, "Accept": "application/json"} }) 
   
   .then(function(response){
     return response.json();
   })
    .then(function(data){
      console.log(data)
-    //  for(var i = 0; i <10; i++) {
-    //        console.log(data.tracks[i].name);
-    //  }
+     for(var i = 0; i <10; i++) {
+           console.log(data.tracks[i].name);
+     }
  
    })
 }
