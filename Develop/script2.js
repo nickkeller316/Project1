@@ -14,7 +14,14 @@ function startNow() {
 $(".mainblocks").empty()
   var artKey = localStorage.getItem("user-In");
 
+
 fetch("https://api.spotify.com/v1/search?q=" + artKey + "&type=artist", {headers:{"Authorization": token, "Accept": "application/json"} })   
+
+  console.log(artKey)
+  console.log(token)
+
+  fetch("https://api.spotify.com/v1/search?q=" + artKey + "&type=artist", {headers:{"Authorization": token, "Accept": "application/json"} })   
+
   
   .then(function(response){
    
@@ -48,8 +55,15 @@ fetch("https://api.spotify.com/v1/search?q=" + artKey + "&type=artist", {headers
      div2nd.append(artistName2);
 
       var genI = data.artists.items[i].genres
+
       
       // console.log(genI.toString().replace(',','<br>'))
+
+
+     var genresDIv2 = ("<p class='genres2 small-4 medium-4'>"  +genI+ "</p>");
+     div2nd.append(genresDIv2);
+     
+    }
 
 
      var genresDIv2 = ("<p class='genres2 small-3 medium-3'>"  +genI.toString().replace(',','\n')+ "</p>");
