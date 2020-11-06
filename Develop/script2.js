@@ -35,9 +35,11 @@ fetch("https://api.spotify.com/v1/search?q=" + artKey + "&type=artist", {headers
     divFirst.append(div2nd)
     var div3rd = $("<div class='firstbox avatar-image2 small-3 medium-3'>")
     div2nd.append(div3rd)
+    var imgDiv = ""
+    if (data.artists.items[i].images[0].url) {
+      imgDiv = data.artists.items[i].images[0].url;
+    }
     
-
-    var imgDiv = data.artists.items[i].images[1].url;
     div3rd.append('<img class="imgBox" src=' + imgDiv + '><br/>');
 
 
