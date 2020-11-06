@@ -36,13 +36,8 @@ fetch("https://api.spotify.com/v1/search?q=" + artKey + "&type=artist", {headers
     var div3rd = $("<div class='firstbox avatar-image2 small-3 medium-3'>")
     div2nd.append(div3rd)
     
-    //  <button class="button primary small">
-    //       <i class="fa fa-user-plus" aria-hidden="true"></i>
-    //       Add Friend
-    //     </button>
 
-
-    var imgDiv = data.artists.items[i].images[2].url;
+    var imgDiv = data.artists.items[i].images[1].url;
     div3rd.append('<img class="imgBox" src=' + imgDiv + '><br/>');
 
 
@@ -51,13 +46,13 @@ fetch("https://api.spotify.com/v1/search?q=" + artKey + "&type=artist", {headers
 
       var genI = data.artists.items[i].genres
       var genresN = "";
-      // console.log(genI.toString().replace(',','<br>'))
-      // for (var i = 0; i < genI.length; i++) {
-      //   genresN = genresN+
-      //   genI[i].toString().replace(',','<br></br>')
+      console.log(genI.toString().replace(',','<br>'))
+      for (var i = 0; i < genI.length; i++) {
+        genresN = genresN+
+        genI[i].toString().replace(',','<br></br>')
         
-      // }
-
+      }
+   console.log(genresN)
      var genresDIv2 = ("<p class='genres2 small-3 medium-3'>"  + genresN +"</p>");
      div2nd.append(genresDIv2);
 
