@@ -76,7 +76,7 @@ fetch("https://api.spotify.com/v1/search?q=" + artKey + "&type=artist", {headers
 function showSongs(artistId) {
   // console.log(token)
 // $(".avatar-image2").addClass("hide")
-fetch(`https://api.spotify.com/v1/artists/${artistId}/top-tracks`, {headers:{"Authorization": token, "Accept": "application/json"} }) 
+fetch(`https://api.spotify.com/v1/artists/${artistId}/top-tracks?market=us`, {headers:{"Authorization": token, "Accept": "application/json"} }) 
   
   .then(function(response){
     return response.json();
